@@ -1,6 +1,6 @@
 'use strict';
 
-var DIR         = __dirname + '/../../',
+var DIR         = __dirname + '/../',
     DIR_TMPL    = DIR       + 'tmpl/',
     DIR_HTML    = DIR       + 'html/',
     DIR_LIB     = DIR       + 'lib/',

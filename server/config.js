@@ -1,7 +1,7 @@
 'use strict';
 
 var DIR_SERVER  = __dirname     + '/',
-    DIR_LIB     = DIR_SERVER    + '../',
+    DIR_LIB     = DIR_SERVER    + '../lib/',
     DIR         = DIR_SERVER    + '../../',
     
     path        = require('path'),

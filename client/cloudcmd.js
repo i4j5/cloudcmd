@@ -8,13 +8,11 @@ var CloudCmd;
     function load(prefix) {
         prefix = prefix || '';
         
-        var urlFiles,
-            modules = '/modules/',
-            lib     = 'lib/',
+        var modules = '/modules/',
             client  = 'client/',
             files   = [
-                'util',
-                'cloudfunc',
+                'lib/util',
+                'lib/cloudfunc',
                 client  + 'dom',
                 client  + 'events',
                 client  + 'rest',
@@ -23,37 +21,35 @@ var CloudCmd;
                 client  + 'storage',
                 client  + 'files',
                 client  + 'dialog',
-                'client',
+                'lib/client',
                 client  + 'buffer',
                 client  + 'listeners',
                 client  + 'key',
                 client  + 'directory'
-            ].map(function(name) {
-               return lib + name;
-            }),
+            ];
             
-            moduleFiles = [
-                window.Promise ? '' : 'promise-polyfill/promise.min',
-                libDir('format', 'format-io'),
-                libDir('rendy'),
-                libDir('exec', 'execon'),
-                libDir('jonny'),
-                libDist('emitify'),
-                libDist('currify'),
-            ].filter(function(name) {
-                return name;
-            }).map(function(name) {
-                 return modules + name;
-            });
+        var moduleFiles = [
+            window.Promise ? '' : 'promise-polyfill/promise.min',
+            libDir('format', 'format-io'),
+            libDir('rendy'),
+            libDir('exec', 'execon'),
+            libDir('jonny'),
+            libDist('emitify'),
+            libDist('currify'),
+        ].filter(function(name) {
+            return name;
+        }).map(function(name) {
+             return modules + name;
+        });
         
-        files = moduleFiles
+        var files = moduleFiles
             .concat(files)
             .concat('/join/join')
             .map(function(name) {
                 return name + '.js';
             });
         
-        urlFiles = getJoinURL(files);
+        var urlFiles = getJoinURL(files);
         
         createScript(prefix + urlFiles, function() {
             CloudCmd.init(prefix);

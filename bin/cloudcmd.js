@@ -5,7 +5,7 @@
 const Info = require('../package');
 const DIR = __dirname + '/../';
 const DIR_LIB = DIR + 'lib/';
-const DIR_SERVER = DIR_LIB + 'server/';
+const DIR_SERVER = DIR_LIB + '../server/';
 
 const exit = require(DIR_SERVER + 'exit');
 const config = require(DIR_SERVER + 'config');
@@ -117,7 +117,7 @@ if (args.version) {
 }
 
 function validateRoot(root) {
-    const validate = require('../lib/server/validate');
+    const validate = require('../server/validate');
     validate.root(root, console.log);
 }
 

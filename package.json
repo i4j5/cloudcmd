@@ -39,8 +39,8 @@
     "cloudcmd+": "bin/cloudcmd.js"
   },
   "config": {
-    "dirs_legacy": "bin lib",
-    "dirs": "bin lib test"
+    "dirs_legacy": "bin lib client",
+    "dirs": "bin lib test server"
   },
   "scripts": {
     "start": "node bin/cloudcmd.js",
@@ -50,9 +50,9 @@
     "lint": "redrun lint:*",
     "lint:css": "recess css/*.css",
     "lint:style": "stylelint css/*.css",
-    "lint:js": "redrun jshint jscs eslint",
+    "lint:js": "redrun jshint jscs eslint:*",
     "lint:js:legacy": "redrun legacy:*",
-    "eslint": "eslint --rule 'no-console:0' test bin/release.js",
+    "eslint:bin": "eslint --rule 'no-console:0' bin test server",
     "jshint": "jshint bin/release.js",
     "jscs": "jscs --esnext $npm_package_config_dirs",
     "legacy:jshint": "jshint --config legacy/.jshintrc $npm_package_config_dirs_dirs_legacy --exclude bin/release.js",
